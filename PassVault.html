@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassVault</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="style57.css">
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main Application Container -->
+    <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-lg">
+
+        <!-- Header -->
+        <h1 class="text-3xl font-bold text-center mb-6 text-indigo-400">Human-Friendly Password Generator</h1>
+        <p class="text-center text-gray-400 mb-8">Creates memorable but secure passwords using words and separators, fitting a max length.</p>
+
+        <!-- Password Display Area -->
+        <div class="relative bg-gray-700 rounded-xl p-4 flex items-center justify-between mb-6 shadow-inner min-h-[64px]">
+            <span id="password-display" class="text-xl font-mono truncate text-gray-200">
+                Click Generate
+            </span>
+            <button id="copy-btn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 ml-4 whitespace-nowrap">
+                Copy
+            </button>
+        </div>
+
+        <!-- Options Container -->
+        <div class="space-y-6">
+
+            <!-- Gemini API Dynamic Word Generator Section -->
+            <div class="border-t border-gray-700 pt-6">
+                <div class="flex flex-col sm:flex-row items-center justify-between mb-4">
+                    <label for="word-theme-input" class="text-gray-300 w-full sm:w-auto mb-2 sm:mb-0">Word Theme:</label>
+                    <div class="flex items-center w-full sm:w-auto space-x-2">
+                        <input type="text" id="word-theme-input" class="bg-gray-700 border border-gray-600 text-gray-100 rounded-lg py-2 px-4 w-full focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., 'fantasy creatures'">
+                        <button id="generate-words-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 whitespace-nowrap">
+                            Generate Words ✨
+                        </button>
+                    </div>
+                </div>
+                <div id="word-generator-status" class="text-sm text-center text-gray-400 min-h-[20px]"></div>
+            </div>
+
+            <!-- Max Password Length Slider -->
+            <div class="flex flex-col sm:flex-row items-center justify-between">
+                <label for="max-length" class="text-gray-300 w-full sm:w-auto mb-2 sm:mb-0">Max Password Length:</label>
+                <div class="flex items-center w-full sm:w-auto">
+                    <span id="max-length-value" class="text-lg font-bold text-indigo-400 w-8 text-right mr-2">12</span>
+                    <input type="range" id="max-length" min="8" max="18" value="12" class="w-full sm:w-48 h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer">
+                </div>
+            </div>
+
+            <!-- Separator Type Dropdown -->
+            <div class="flex flex-col sm:flex-row items-center justify-between">
+                <label for="separator" class="text-gray-300 w-full sm:w-auto mb-2 sm:mb-0">Separator:</label>
+                <select id="separator" class="bg-gray-700 border border-gray-600 text-gray-100 rounded-lg py-2 px-4 w-full sm:w-auto focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="-">- (Hyphen)</option>
+                    <option value="_">_ (Underscore)</option>
+                    <option value=".">. (Dot)</option>
+                    <option value=" "> (Space)</option>
+                    <option value="">(None)</option>
+                </select>
+            </div>
+
+            <!-- Checkbox Options -->
+            <div class="space-y-3">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="include-numbers" class="rounded text-indigo-500 focus:ring-indigo-500" checked>
+                    <span class="text-gray-300 text-lg">Include Numbers</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="include-symbols" class="rounded text-indigo-500 focus:ring-indigo-500">
+                    <span class="text-gray-300 text-lg">Include Random Symbol</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="random-case" class="rounded text-indigo-500 focus:ring-indigo-500">
+                    <span class="text-gray-300 text-lg">Random Capitalization</span>
+                </label>
+            </div>
+
+            <!-- Generate Password Button -->
+            <button id="generate-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 rounded-lg text-lg transition-colors duration-200 mt-6">
+                Generate Password
+            </button>
+            
+        </div>
+
+        <!-- Message box for copy success -->
+        <div id="message-box" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 p-3 rounded-lg bg-green-500 text-white text-sm hidden transition-opacity duration-300 ease-out opacity-0 z-50">
+            Password copied to clipboard!
+        </div>
+
+    </div>
+
+    <!-- Link to the external JavaScript file. The 'defer' attribute ensures it runs after the HTML is parsed. -->
+    <script src="script13.js" defer></script>
+</body>
+</html>

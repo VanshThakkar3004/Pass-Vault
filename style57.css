@@ -1,0 +1,69 @@
+/* Import a font for a modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    /* Updated background with a vibrant, light gradient */
+    background: #e0f7fa; /* A light cyan */
+    background: linear-gradient(135deg, #8de9f5 0%, #9b5cee 100%); /* A light cyan to a very light green */
+    color: #bec289; /* A dark navy blue for text */
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* Custom styles for the main application container */
+.bg-gray-800 {
+    /* Updated for a lighter theme */
+    background-color: #ffffff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bg-gray-800:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom styles for the range slider track and thumb */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #d1d5db; /* A lighter gray for the track */
+  border-radius: 9999px; /* Full rounded corners */
+  height: 8px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: #ffe710; /* A vibrant coral/orange accent color */
+  border-radius: 50%;
+  margin-top: -6px; /* Center the thumb on the track */
+  cursor: pointer;
+  /* Add a transition to the thumb for a smoother feel */
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #e85555; /* A darker coral on hover */
+  transform: scale(1.1);
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #FF6B6B; /* Use the new coral accent color */
+  width: 24px;
+  height: 24px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
